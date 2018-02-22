@@ -66,7 +66,7 @@ cleared BIT,
 type VARCHAR(45)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
 
--- Criteria are:
+-- Criteria:
 
 -- Table are "fill only". There are no delete and update operations.
 -- INSERT (date_time, value) should be fast.
