@@ -21,7 +21,7 @@ $num = $stmt->rowCount();
 // check if more than 0 record found
 if($num>0){
  
-    // products array
+    // readings array
     $readings_arr=array();
     $readings_arr["records"]=array();
  
