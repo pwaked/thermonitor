@@ -1,5 +1,3 @@
 # thermonitor
-A monitoring system to graphically show some temperature changes in a period of time.
-
-Data of temperature are saved on MySQL database. A simple REST API is created in PHP. A web app connects to the API and retrieve 
+A web-based monitoring system to read the data of temperature from MySQL database and create a chart that shows the temperature changes in a period of time. A simple REST API is created in PHP and a web application connects to the API, retrieve 
 the data with HTTP request GET with JavaScript, and display it on the front end of a website using D3 library.
