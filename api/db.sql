@@ -1,8 +1,8 @@
 
+
 -- A user may maintain one or more locations 
 CREATE TABLE `users` (
   `id   INTEGER PRIMARY KEY AUTOINCREMENT,
-  `location_id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -11,8 +11,7 @@ CREATE TABLE `users` (
   `resetComplete` varchar(50) DEFAULT 'No',
   `action_type` enum('turn_on','turn_off','change_device') DEFAULT NULL,
   `action_taken_description` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`location_id`) REFERENCES locations(id)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 	
 -- A list of physical sensor locations, usually mounted inside or outside the storage.
@@ -21,7 +20,8 @@ CREATE TABLE `users` (
 CREATE TABLE `locations` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `name` varchar(50), -- engine, exhaust, indoor, outdoor, etc.
-PRIMARY KEY (`id`)
+PRIMARY KEY (`id`),
+FOREIGN KEY (`user_id`) REFERENCES users(id)
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
 
 --
@@ -66,7 +66,7 @@ cleared BIT,
 type VARCHAR(45)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
 
--- Criteria:
+-- Criterias:
 
 -- Table are "fill only". There are no delete and update operations.
 -- INSERT (date_time, value) should be fast.
