@@ -28,7 +28,7 @@ value: '60'
 var xhttp  = new XMLHttpRequest();
 
 // open a new connection, using the GET request on the URL endpoint
-xhttp.open("GET", "http://localhost/monitor/api/reading/read.php", true);
+xhttp.open("GET", "http://localhost/thermonitor/api/reading/read.php", true);
 xhttp.send();
 
 xhttp.onreadystatechange = function() {
